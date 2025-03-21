@@ -1,0 +1,231 @@
+ry focus:outline-none focus:ring-1 focus:ring-primary transition-colors" placeholder="Your name" required>
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-medium text-foreground mb-2">Email</label>
+              <input type="email" id="email" name="email" class="w-full px-4 py-2 rounded-lg bg-muted border border-border focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors" placeholder="your.email@example.com" required>
+            </div>
+          </div>
+          <div>
+            <label for="subject" class="block text-sm font-medium text-foreground mb-2">Subject</label>
+            <input type="text" id="subject" name="subject" class="w-full px-4 py-2 rounded-lg bg-muted border border-border focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors" placeholder="What is this regarding?" required>
+          </div>
+          <div>
+            <label for="message" class="block text-sm font-medium text-foreground mb-2">Message</label>
+            <textarea id="message" name="message" rows="5" class="w-full px-4 py-2 rounded-lg bg-muted border border-border focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors" placeholder="Your message here..." required></textarea>
+          </div>
+          <button type="submit" class="w-full px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors">
+            Send Message
+          </button>
+        </form>
+      </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="py-12 px-6 border-t border-border mt-20">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="mb-8 md:mb-0">
+            <a href="#" class="text-2xl font-bold text-gradient">DEV<span class="text-foreground">Expert</span></a>
+            <p class="mt-2 text-muted-foreground">Building intelligent web experiences.</p>
+          </div>
+          <div class="flex space-x-6">
+            <a href="#" class="text-muted-foreground hover:text-primary transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+            <a href="#" class="text-muted-foreground hover:text-primary transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
+              </svg>
+            </a>
+            <a href="#" class="text-muted-foreground hover:text-primary transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="mt-8 pt-8 border-t border-border text-center text-muted-foreground">
+          <p>&copy; 2023 DEVExpert. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+    
+    <!-- Three.js and Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.154.0/build/three.min.js"></script>
+    <script>
+      // Mobile menu toggle
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      const closeMenuBtn = document.getElementById('close-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+      
+      mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      });
+      
+      closeMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        document.body.style.overflow = 'auto';
+      });
+      
+      mobileMenuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+          document.body.style.overflow = 'auto';
+        });
+      });
+      
+      // Contact form
+      const contactForm = document.getElementById('contact-form');
+      
+      contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        // Simulate form submission
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerText;
+        
+        submitBtn.innerText = 'Sending...';
+        submitBtn.disabled = true;
+        
+        setTimeout(() => {
+          contactForm.reset();
+          submitBtn.innerText = 'Message Sent!';
+          
+          setTimeout(() => {
+            submitBtn.innerText = originalText;
+            submitBtn.disabled = false;
+          }, 2000);
+        }, 1500);
+      });
+      
+      // Three.js background animation
+      const canvas = document.getElementById('bg-canvas');
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+      const renderer = new THREE.WebGLRenderer({ 
+        canvas: canvas,
+        alpha: true,
+        antialias: true
+      });
+      
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      
+      // Create particle field
+      const particlesGeometry = new THREE.BufferGeometry();
+      const particlesCount = 500;
+      const posArray = new Float32Array(particlesCount * 3);
+      
+      for (let i = 0; i < particlesCount * 3; i++) {
+        posArray[i] = (Math.random() - 0.5) * 10;
+      }
+      
+      particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+      
+      const particlesMaterial = new THREE.PointsMaterial({
+        size: 0.1,
+        transparent: true,
+        color: '#88ccff',
+        blending: THREE.AdditiveBlending
+      });
+      
+      const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+      scene.add(particlesMesh);
+      
+      // Create animated spheres
+      const sphere1Geometry = new THREE.SphereGeometry(0.8, 32, 32);
+      const sphere1Material = new THREE.MeshBasicMaterial({
+        color: '#4385ff',
+        transparent: true,
+        opacity: 0.6,
+        wireframe: true
+      });
+      const sphere1 = new THREE.Mesh(sphere1Geometry, sphere1Material);
+      scene.add(sphere1);
+      
+      const sphere2Geometry = new THREE.SphereGeometry(1.2, 32, 32);
+      const sphere2Material = new THREE.MeshBasicMaterial({
+        color: '#a855f7',
+        transparent: true,
+        opacity: 0.4,
+        wireframe: true
+      });
+      const sphere2 = new THREE.Mesh(sphere2Geometry, sphere2Material);
+      scene.add(sphere2);
+      
+      // Position camera
+      camera.position.z = 5;
+      
+      // Mouse movement effect
+      let mouseX = 0;
+      let mouseY = 0;
+      
+      function onDocumentMouseMove(event) {
+        mouseX = (event.clientX - window.innerWidth / 2) / 100;
+        mouseY = (event.clientY - window.innerHeight / 2) / 100;
+      }
+      
+      document.addEventListener('mousemove', onDocumentMouseMove);
+      
+      // Animation loop
+      function animate() {
+        requestAnimationFrame(animate);
+        
+        particlesMesh.rotation.y += 0.001;
+        particlesMesh.rotation.z += 0.0005;
+        
+        // Mouse movement effect
+        particlesMesh.rotation.y += mouseX * 0.0005;
+        particlesMesh.rotation.x += mouseY * 0.0005;
+        
+        // Animate spheres
+        const time = Date.now() * 0.001;
+        sphere1.position.x = Math.sin(time * 0.5) * 1.5;
+        sphere1.position.y = Math.cos(time * 0.3) * 1;
+        sphere1.rotation.x += 0.005;
+        sphere1.rotation.y += 0.005;
+        
+        sphere2.position.x = Math.cos(time * 0.4) * 2;
+        sphere2.position.y = Math.sin(time * 0.3) * 1.2;
+        sphere2.rotation.x += 0.003;
+        sphere2.rotation.y += 0.003;
+        
+        renderer.render(scene, camera);
+      }
+      
+      animate();
+      
+      // Handle window resize
+      window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      });
+      
+      // Scroll animations
+      const animateSections = () => {
+        const sections = document.querySelectorAll('.section');
+        
+        sections.forEach(section => {
+          const sectionTop = section.getBoundingClientRect().top;
+          const sectionBottom = section.getBoundingClientRect().bottom;
+          const windowHeight = window.innerHeight;
+          
+          if (sectionTop < windowHeight * 0.8 && sectionBottom > 0) {
+            section.classList.add('animate-fade-in');
+          }
+        });
+      };
+      
+      window.addEventListener('scroll', animateSections);
+      window.addEventListener('load', animateSections);
+    </script>
+  </body>
+</html>
